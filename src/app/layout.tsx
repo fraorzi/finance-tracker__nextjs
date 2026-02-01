@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import Header from "@/components/layout/Header";
+import Sidebar from "@/components/layout/Sidebar";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const spaceGrotesk = Space_Grotesk({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700"],
+    variable: "--font-space-grotesk",
 });
 
 export const metadata: Metadata = {
@@ -23,12 +22,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${spaceGrotesk.variable} antialiased`}
       >
-        {children}
+          <div className="flex h-screen w-full bg-void overflow-hidden">
+              <Sidebar />
+
+              {/* Main Content */}
+              <main className="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+                  {/* Background Grid */}
+                  <div className="absolute inset-0 bg-grid-pattern bg-size-[40px_40px] opacity-10 pointer-events-none" />
+
+                  {/* Top Bar */}
+                  <Header />
+
+                  <div className="flex-1 overflow-auto p-4 md:p-6 lg:p-8">{children}</div>
+              </main>
+          </div>
       </body>
     </html>
   );
 }
+
