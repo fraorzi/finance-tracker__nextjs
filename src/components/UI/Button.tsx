@@ -2,8 +2,9 @@ import type { BoxIcon } from 'lucide-react';
 import type { PropsWithChildren } from 'react';
 import React from 'react';
 
-interface ButtonProps extends PropsWithChildren {
-  className?: string;
+type ChildrenAndButton = PropsWithChildren<React.ButtonHTMLAttributes<HTMLButtonElement>>;
+
+interface ButtonProps extends ChildrenAndButton {
   variant?: 'primary' | 'secondary' | 'danger' | 'ghost' | 'icon';
   size?: 'sm' | 'md' | 'lg' | 'icon';
   icon?: typeof BoxIcon;
