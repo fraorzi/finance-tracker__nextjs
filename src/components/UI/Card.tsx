@@ -5,16 +5,10 @@ interface CardProps {
   action?: React.ReactNode;
   noPadding?: boolean;
 }
-export default function Card({
-  children,
-  className = '',
-  title,
-  action,
-  noPadding = false,
-}: CardProps) {
+
+export default function Card({ children, className, title, action, noPadding = false }: CardProps) {
   return (
     <div className={`bg-void-light border-void-lighter group relative border ${className}`}>
-      {/* Corner accents for tech feel */}
       <div className='border-stark/20 absolute top-0 left-0 h-2 w-2 border-t border-l'></div>
       <div className='border-stark/20 absolute top-0 right-0 h-2 w-2 border-t border-r'></div>
       <div className='border-stark/20 absolute bottom-0 left-0 h-2 w-2 border-b border-l'></div>

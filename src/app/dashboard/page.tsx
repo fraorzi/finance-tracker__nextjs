@@ -90,9 +90,7 @@ const cashFlowData = [
 export default function Dashboard() {
   return (
     <div className='flex h-full flex-col gap-6 lg:flex-row'>
-      {/* Main Left Column */}
       <div className='flex flex-1 flex-col gap-6'>
-        {/* Net Worth Section */}
         <div className='relative'>
           <div className='mb-2 flex items-start justify-between'>
             <h2 className='text-acid text-sm font-bold tracking-widest uppercase'>
@@ -131,7 +129,6 @@ export default function Dashboard() {
           <div className='border-void-lighter mb-8 w-full border-b border-dashed'></div>
         </div>
 
-        {/* Stats Grid */}
         <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
           <Card className='border-acid/20'>
             <div className='mb-4 flex items-start justify-between'>
@@ -167,8 +164,7 @@ export default function Dashboard() {
           </Card>
         </div>
 
-        {/* Cash Flow Chart */}
-        <Card className='flex min-h-[300px] flex-1 flex-col' title='Cash Flow Velocity'>
+        <Card className='flex min-h-75 flex-1 flex-col' title='Cash Flow Velocity'>
           <div className='absolute top-4 right-4 flex gap-1'>
             <button className='bg-void text-acid border-acid border px-2 py-1 text-xs font-bold'>
               1W
@@ -183,12 +179,10 @@ export default function Dashboard() {
             <ResponsiveContainer width='100%' height='100%'>
               <BarChart data={cashFlowData}>
                 <Bar dataKey='value' fill='#2A2A1A' stroke='#4A4A3A' />
-                {/* Highlight specific bars manually or via data props in real app */}
               </BarChart>
             </ResponsiveContainer>
           </div>
 
-          {/* Custom styled bars overlay simulation for the specific look */}
           <div className='pointer-events-none absolute inset-0 top-16 flex items-end justify-between gap-2 px-4 pb-4'>
             {cashFlowData.map((d, i) => (
               <div
@@ -212,7 +206,6 @@ export default function Dashboard() {
           </div>
         </Card>
 
-        {/* Action Bar */}
         <div className='grid grid-cols-2 gap-4 md:grid-cols-4'>
           <Button variant='secondary' icon={Plus} fullWidth>
             Deposit
@@ -232,7 +225,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Right Sidebar - Recent Transactions */}
       <div className='border-void-lighter flex w-full flex-col gap-0 border-l pt-6 pl-0 lg:w-80 lg:pt-0 lg:pl-6'>
         <div className='bg-acid text-void mb-8 flex w-full flex-col items-center justify-center p-8'>
           <div className='border-void mb-2 rounded-full border-2 p-2'>
